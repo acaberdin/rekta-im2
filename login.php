@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $mysqli->prepare("SELECT id, user_name, user_type_id, password FROM user_login WHERE user_name = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
-
     $stmt->store_result();
+
     if ($stmt->num_rows == 1) {
         $stmt->bind_result($id, $name, $user_type_id, $hashed_password);
         $stmt->fetch();
@@ -43,39 +43,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="styles/register.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
-
-
-
 <body>
 <div class="container">
-    <h2>Login</h2>
+    <div class="form-container">
+        <h2 class="text-center mb-4">Login</h2>
 
-    <!-- Error messages -->
-
-    <?php if (!empty($_GET['registered'])): ?>
-    <p style="color: green;">Account created successfully. You can now log in.</p>
+        <?php if (!empty($_GET['registered'])): ?>
+            <div class="alert alert-success text-center">
+                Account created successfully. You can now log in.
+            </div>
         <?php endif; ?>
 
         <?php if (!empty($error_message)): ?>
-            <ul>
-                <li><?= htmlspecialchars($error_message) ?></li>
-            </ul>
+            <div class="alert alert-danger">
+                <?= htmlspecialchars($error_message) ?>
+            </div>
         <?php endif; ?>
 
-    <form method="POST">
-    <label>Username:</label>
-    <input type="text" name="username" value="<?= htmlspecialchars($username) ?>" required />
+        <form method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" value="<?= htmlspecialchars($username) ?>" required>
+            </div>
 
-    <label>Password:</label>
-    <input type="password" name="password" required />
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
 
-    <input type="submit" value="Login" />
-    </form>
+            <button type="submit" class="btn btn-dark w-100">Login</button>
+        </form>
 
-    <p>Not a member? <a href="register.php">Register Now</a></p>
+        <p class="mt-3 text-center">Not a member? <a href="register.php">Register Now</a></p>
+    </div>
 </div>
 </body>
-
 </html>
