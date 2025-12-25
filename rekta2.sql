@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2025 at 05:35 AM
+-- Generation Time: Jul 16, 2025 at 09:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rekta2`
+-- Database: `rekta_sql`
 --
 
 -- --------------------------------------------------------
@@ -117,72 +117,73 @@ CREATE TABLE `product_inventory` (
   `unit_price` float DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
-  `product_description` varchar(255) DEFAULT NULL
+  `product_description` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product_inventory`
 --
 
-INSERT INTO `product_inventory` (`id`, `product_name`, `is_active`, `color`, `size`, `unit_price`, `category_id`, `quantity`, `product_description`) VALUES
-(51, 'Cycling Jersey', 1, 'black', 'small', 850, 1, 45, 'High-performance jersey crafted with breathable mesh and quick-dry fabric'),
-(52, 'Cycling Jersey', 1, 'white', 'small', 850, 1, 40, 'High-performance jersey crafted with breathable mesh and quick-dry fabric'),
-(53, 'Cycling Jersey', 1, 'black', 'medium', 850, 1, 35, 'High-performance jersey crafted with breathable mesh and quick-dry fabric'),
-(54, 'Cycling Jersey', 1, 'white', 'medium', 850, 1, 50, 'High-performance jersey crafted with breathable mesh and quick-dry fabric'),
-(55, 'Cycling Jersey', NULL, 'black', 'large', 850, 1, 49, 'High-performance jersey crafted with breathable mesh and quick-dry fabric'),
-(56, 'Cycling Jersey', 1, 'white', 'large', 850, 1, 50, 'High-performance jersey crafted with breathable mesh and quick-dry fabric'),
-(57, 'Cycling Bibshorts', NULL, 'black', 'small', 1499.5, 1, 52, 'Durable bibshorts made for endurance cycling with firm muscle support.'),
-(58, 'Cycling Bibshorts', 1, 'white', 'small', 1499.5, 1, 53, 'Durable bibshorts made for endurance cycling with firm muscle support.'),
-(59, 'Cycling Bibshorts', NULL, 'black', 'medium', 1499.5, 1, 55, 'Durable bibshorts made for endurance cycling with firm muscle support.'),
-(60, 'Cycling Bibshorts', 1, 'white', 'medium', 1499.5, 1, 57, 'Durable bibshorts made for endurance cycling with firm muscle support.'),
-(61, 'Cycling Bibshorts', NULL, 'black', 'large', 1499.5, 1, 59, 'Durable bibshorts made for endurance cycling with firm muscle support.'),
-(62, 'Cycling Bibshorts', 1, 'white', 'large', 1499.5, 1, 61, 'Durable bibshorts made for endurance cycling with firm muscle support.'),
-(63, 'Cycling Shorts', NULL, 'black', 'small', 800, 1, 45, 'All-around cycling shorts with soft padding and snug elastic waistband.'),
-(64, 'Cycling Shorts', 1, 'white', 'small', 800, 1, 40, 'All-around cycling shorts with soft padding and snug elastic waistband.'),
-(65, 'Cycling Shorts', NULL, 'black', 'medium', 800, 1, 35, 'All-around cycling shorts with soft padding and snug elastic waistband.'),
-(66, 'Cycling Shorts', 1, 'white', 'medium', 800, 1, 53, 'All-around cycling shorts with soft padding and snug elastic waistband.'),
-(67, 'Cycling Shorts', NULL, 'black', 'large', 800, 1, 55, 'All-around cycling shorts with soft padding and snug elastic waistband.'),
-(68, 'Cycling Shorts', 1, 'white', 'large', 800, 1, 57, 'All-around cycling shorts with soft padding and snug elastic waistband.'),
-(69, 'Cycling Gloves', NULL, 'black', 'small', 300, 2, 20, 'Half-finger gloves with gel-padded palms for shock absorption.'),
-(70, 'Cycling Gloves', 1, 'white', 'small', 300, 2, 25, 'Half-finger gloves with gel-padded palms for shock absorption.'),
-(71, 'Cycling Gloves', NULL, 'black', 'medium', 300, 2, 20, 'Half-finger gloves with gel-padded palms for shock absorption.'),
-(72, 'Cycling Gloves', 1, 'white', 'medium', 300, 2, 22, 'Half-finger gloves with gel-padded palms for shock absorption.'),
-(73, 'Cycling Gloves', NULL, 'black', 'large', 300, 2, 26, 'Half-finger gloves with gel-padded palms for shock absorption.'),
-(74, 'Cycling Gloves', 1, 'white', 'large', 300, 2, 28, 'Half-finger gloves with gel-padded palms for shock absorption.'),
-(75, 'Socks', NULL, 'black', NULL, 150, 2, 30, 'Stretch-fit performance socks with reinforced toe and heel padding.'),
-(76, 'Socks', 1, 'white', NULL, 150, 2, 35, 'Stretch-fit performance socks with reinforced toe and heel padding.'),
-(77, 'Cycling Cap', NULL, 'black', NULL, 250, 2, 25, 'Lightweight cap with visor and breathable fabric, fits under helmet.'),
-(78, 'Cycling Cap', 1, 'white', NULL, 250, 2, 20, 'Lightweight cap with visor and breathable fabric, fits under helmet.'),
-(79, 'Trucker Cap', NULL, 'black', NULL, 300, 2, 22, 'Casual trucker cap with curved brim and moisture-wicking inner band.'),
-(80, 'Trucker Cap', 1, 'white', NULL, 300, 2, 26, 'Casual trucker cap with curved brim and moisture-wicking inner band.'),
-(81, 'Polo Shirt with Pockets', NULL, 'black', 'small', 900, 1, 52, 'Quick-dry polo with contrast collar and button placket.'),
-(82, 'Polo Shirt with Pockets', 1, 'white', 'small', 900, 1, 53, 'Quick-dry polo with contrast collar and button placket.'),
-(83, 'Polo Shirt with Pockets', NULL, 'black', 'medium', 900, 1, 35, 'Quick-dry polo with contrast collar and button placket.'),
-(84, 'Polo Shirt with Pockets', 1, 'white', 'medium', 900, 1, 57, 'Quick-dry polo with contrast collar and button placket.'),
-(85, 'Polo Shirt with Pockets', NULL, 'black', 'large', 900, 1, 59, 'Quick-dry polo with contrast collar and button placket.'),
-(86, 'Polo Shirt with Pockets', 1, 'white', 'large', 900, 1, 48, 'Quick-dry polo with contrast collar and button placket.'),
-(87, 'Drifit Shirt', NULL, 'black', 'small', 450, 1, 53, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.'),
-(88, 'Drifit Shirt', 1, 'white', 'small', 450, 1, 54, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.'),
-(89, 'Drifit Shirt', NULL, 'black', 'medium', 450, 1, 54, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.'),
-(90, 'Drifit Shirt', 1, 'white', 'medium', 450, 1, 55, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.'),
-(91, 'Drifit Shirt', NULL, 'black', 'large', 450, 1, 55, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.'),
-(92, 'Drifit Shirt', 1, 'white', 'large', 450, 1, 56, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.'),
-(93, 'Windbreaker', NULL, 'black', 'small', 1299, 1, 31, 'Windproof jacket with ventilated panels and elastic cuffs.'),
-(94, 'Windbreaker', 1, 'white', 'small', 1299, 1, 25, 'Windproof jacket with ventilated panels and elastic cuffs.'),
-(95, 'Windbreaker', NULL, 'black', 'medium', 1299, 1, 30, 'Windproof jacket with ventilated panels and elastic cuffs.'),
-(96, 'Windbreaker', 1, 'white', 'medium', 1299, 1, 22, 'Windproof jacket with ventilated panels and elastic cuffs.'),
-(97, 'Windbreaker', NULL, 'black', 'large', 1299, 1, 26, 'Windproof jacket with ventilated panels and elastic cuffs.'),
-(98, 'Windbreaker', 1, 'white', 'large', 1299, 1, 28, 'Windproof jacket with ventilated panels and elastic cuffs.'),
-(99, 'Cycling Pouch', NULL, 'black', NULL, 150, 2, 48, 'Compact cycling pouch for tools, snacks, or phone with adjustable strap.'),
-(100, 'Cycling Pouch', 1, 'white', NULL, 150, 2, 45, 'Compact cycling pouch for tools, snacks, or phone with adjustable strap.'),
-(101, 'Jersey', 1, 'Red', 'Small', 899, 1, 50, ''),
-(102, 'Cap', 1, 'Yellow', NULL, 400, 2, 15, ''),
-(103, 'Socks', 1, 'Blue', NULL, 50, 2, 25, ''),
-(104, 'Cycling Shorts', 1, 'Maroon', 'Medium', 500, 1, 22, ''),
-(105, 'Gloves', 1, 'Black', NULL, 50, 2, 20, ''),
-(106, 'Jersey', 1, 'Yellow', 'Medium', 499, 1, 40, ''),
-(107, 'Gloves', 1, 'Maroon', NULL, 50, 2, 22, ''),
-(108, 'Bib Shorts', 1, 'White', 'Large', 499.99, 1, 15, '');
+INSERT INTO `product_inventory` (`id`, `product_name`, `is_active`, `color`, `size`, `unit_price`, `category_id`, `quantity`, `product_description`, `image`) VALUES
+(51, 'Cycling Jersey', 1, 'black', 'small', 850, 1, 45, 'High-performance jersey crafted with breathable mesh and quick-dry fabric', 'jerseyblack.jpg'),
+(52, 'Cycling Jersey', 1, 'white', 'small', 850, 1, 40, 'High-performance jersey crafted with breathable mesh and quick-dry fabric', 'jerseywhite.jpg'),
+(53, 'Cycling Jersey', 1, 'black', 'medium', 850, 1, 35, 'High-performance jersey crafted with breathable mesh and quick-dry fabric', 'jerseyblack.jpg'),
+(54, 'Cycling Jersey', 1, 'white', 'medium', 850, 1, 50, 'High-performance jersey crafted with breathable mesh and quick-dry fabric', 'jerseywhite.jpg'),
+(55, 'Cycling Jersey', NULL, 'black', 'large', 850, 1, 49, 'High-performance jersey crafted with breathable mesh and quick-dry fabric', 'jerseyred.jpg'),
+(56, 'Cycling Jersey', 1, 'white', 'large', 850, 1, 50, 'High-performance jersey crafted with breathable mesh and quick-dry fabric', 'jerseyredblue.jpg'),
+(57, 'Cycling Bibshorts', NULL, 'black', 'small', 1499.5, 1, 52, 'Durable bibshorts made for endurance cycling with firm muscle support.', 'bibshortsgreyfront.jpg'),
+(58, 'Cycling Bibshorts', 1, 'white', 'small', 1499.5, 1, 53, 'Durable bibshorts made for endurance cycling with firm muscle support.', 'bibshortsblue.jpg'),
+(59, 'Cycling Bibshorts', NULL, 'black', 'medium', 1499.5, 1, 55, 'Durable bibshorts made for endurance cycling with firm muscle support.', 'bibshortsgreyfront.jpg'),
+(60, 'Cycling Bibshorts', 1, 'white', 'medium', 1499.5, 1, 57, 'Durable bibshorts made for endurance cycling with firm muscle support.', 'bibshortsblue.jpg'),
+(61, 'Cycling Bibshorts', NULL, 'black', 'large', 1499.5, 1, 59, 'Durable bibshorts made for endurance cycling with firm muscle support.', 'bibshortsgreyfront.jpg'),
+(62, 'Cycling Bibshorts', 1, 'white', 'large', 1499.5, 1, 61, 'Durable bibshorts made for endurance cycling with firm muscle support.', 'bibshortsblue.jpg'),
+(63, 'Cycling Shorts', NULL, 'black', 'small', 800, 1, 45, 'All-around cycling shorts with soft padding and snug elastic waistband.', 'shortblack.webp'),
+(64, 'Cycling Shorts', 1, 'white', 'small', 800, 1, 40, 'All-around cycling shorts with soft padding and snug elastic waistband.', 'shortswhite.webp'),
+(65, 'Cycling Shorts', NULL, 'black', 'medium', 800, 1, 35, 'All-around cycling shorts with soft padding and snug elastic waistband.', 'shortblack.webp'),
+(66, 'Cycling Shorts', 1, 'white', 'medium', 800, 1, 53, 'All-around cycling shorts with soft padding and snug elastic waistband.', 'shortswhite.webp'),
+(67, 'Cycling Shorts', NULL, 'black', 'large', 800, 1, 55, 'All-around cycling shorts with soft padding and snug elastic waistband.', 'shortblack.webp'),
+(68, 'Cycling Shorts', 1, 'white', 'large', 800, 1, 57, 'All-around cycling shorts with soft padding and snug elastic waistband.', 'shortswhite.webp'),
+(69, 'Cycling Gloves', NULL, 'black', 'small', 300, 2, 20, 'Half-finger gloves with gel-padded palms for shock absorption.', 'gloveblackfront.jpg'),
+(70, 'Cycling Gloves', 1, 'white', 'small', 300, 2, 25, 'Half-finger gloves with gel-padded palms for shock absorption.', 'gloveswhite.jpg'),
+(71, 'Cycling Gloves', NULL, 'black', 'medium', 300, 2, 20, 'Half-finger gloves with gel-padded palms for shock absorption.', 'gloveblackfront.jpg'),
+(72, 'Cycling Gloves', 1, 'white', 'medium', 300, 2, 22, 'Half-finger gloves with gel-padded palms for shock absorption.', 'gloveswhite.jpg'),
+(73, 'Cycling Gloves', NULL, 'black', 'large', 300, 2, 26, 'Half-finger gloves with gel-padded palms for shock absorption.', 'gloveblackfront.jpg'),
+(74, 'Cycling Gloves', 1, 'white', 'large', 300, 2, 28, 'Half-finger gloves with gel-padded palms for shock absorption.', 'gloveswhite.jpg'),
+(75, 'Socks', NULL, 'black', NULL, 150, 2, 30, 'Stretch-fit performance socks with reinforced toe and heel padding.', 'socksblack.jpg'),
+(76, 'Socks', 1, 'white', NULL, 150, 2, 35, 'Stretch-fit performance socks with reinforced toe and heel padding.', 'sockswhite.jpg'),
+(77, 'Cycling Cap', NULL, 'black', NULL, 250, 2, 25, 'Lightweight cap with visor and breathable fabric, fits under helmet.', 'capblack.jpg'),
+(78, 'Cycling Cap', 1, 'white', NULL, 250, 2, 20, 'Lightweight cap with visor and breathable fabric, fits under helmet.', 'capred.jpg'),
+(79, 'Trucker Cap', NULL, 'black', NULL, 300, 2, 22, 'Casual trucker cap with curved brim and moisture-wicking inner band.', 'tuckercap-min.jpg'),
+(80, 'Trucker Cap', 1, 'white', NULL, 300, 2, 26, 'Casual trucker cap with curved brim and moisture-wicking inner band.', 'tuckercap-min.jpg'),
+(81, 'Polo Shirt with Pockets', NULL, 'black', 'small', 900, 1, 52, 'Quick-dry polo with contrast collar and button placket.', 'poloshirtblack.jpg'),
+(82, 'Polo Shirt with Pockets', 1, 'white', 'small', 900, 1, 53, 'Quick-dry polo with contrast collar and button placket.', 'poloshirtwhite.webp'),
+(83, 'Polo Shirt with Pockets', NULL, 'black', 'medium', 900, 1, 35, 'Quick-dry polo with contrast collar and button placket.', 'poloshirtblack.jpg'),
+(84, 'Polo Shirt with Pockets', 1, 'white', 'medium', 900, 1, 57, 'Quick-dry polo with contrast collar and button placket.', 'poloshirtwhite.webp'),
+(85, 'Polo Shirt with Pockets', NULL, 'black', 'large', 900, 1, 59, 'Quick-dry polo with contrast collar and button placket.', 'poloshirtblack.jpg'),
+(86, 'Polo Shirt with Pockets', 1, 'white', 'large', 900, 1, 48, 'Quick-dry polo with contrast collar and button placket.', 'poloshirtwhite.webp'),
+(87, 'Drifit Shirt', NULL, 'black', 'small', 450, 1, 53, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.', 'shirtblack.avif'),
+(88, 'Drifit Shirt', 1, 'white', 'small', 450, 1, 54, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.', 'shirtwhite.jpg'),
+(89, 'Drifit Shirt', NULL, 'black', 'medium', 450, 1, 54, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.', 'shirtblack.avif'),
+(90, 'Drifit Shirt', 1, 'white', 'medium', 450, 1, 55, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.', 'shirtwhite.jpg'),
+(91, 'Drifit Shirt', NULL, 'black', 'large', 450, 1, 55, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.', 'shirtblack.avif'),
+(92, 'Drifit Shirt', 1, 'white', 'large', 450, 1, 56, 'Training-fit dri-fit shirt with ergonomic seams and comfort fit.', 'shirtwhite.jpg'),
+(93, 'Windbreaker', NULL, 'black', 'small', 1299, 1, 31, 'Windproof jacket with ventilated panels and elastic cuffs.', 'windbreaker.webp'),
+(94, 'Windbreaker', 1, 'white', 'small', 1299, 1, 25, 'Windproof jacket with ventilated panels and elastic cuffs.', 'windbreakerwhite.webp'),
+(95, 'Windbreaker', NULL, 'black', 'medium', 1299, 1, 30, 'Windproof jacket with ventilated panels and elastic cuffs.', 'windbreaker.webp'),
+(96, 'Windbreaker', 1, 'white', 'medium', 1299, 1, 22, 'Windproof jacket with ventilated panels and elastic cuffs.', 'windbreakerwhite.webp'),
+(97, 'Windbreaker', NULL, 'black', 'large', 1299, 1, 26, 'Windproof jacket with ventilated panels and elastic cuffs.', 'windbreaker.webp'),
+(98, 'Windbreaker', 1, 'white', 'large', 1299, 1, 28, 'Windproof jacket with ventilated panels and elastic cuffs.', 'windbreakerwhite.webp'),
+(99, 'Cycling Pouch', NULL, 'black', NULL, 150, 2, 48, 'Compact cycling pouch for tools, snacks, or phone with adjustable strap.', 'puchblack.jpg'),
+(100, 'Cycling Pouch', 1, 'white', NULL, 150, 2, 45, 'Compact cycling pouch for tools, snacks, or phone with adjustable strap.', 'puchgray.jpg'),
+(101, 'Jersey', 1, 'Red', 'Small', 899, 1, 50, '', 'gloveblueback.jpg'),
+(102, 'Cap', 1, 'Yellow', NULL, 400, 2, 15, '', NULL),
+(103, 'Socks', 1, 'Blue', NULL, 50, 2, 25, '', NULL),
+(104, 'Cycling Shorts', 1, 'Maroon', 'Medium', 500, 1, 22, '', NULL),
+(105, 'Gloves', 1, 'Black', NULL, 50, 2, 20, '', NULL),
+(106, 'Jersey', 1, 'Yellow', 'Medium', 499, 1, 40, '', NULL),
+(107, 'Gloves', 1, 'Maroon', NULL, 50, 2, 22, '', NULL),
+(108, 'Bib Shorts', 1, 'White', 'Large', 499.99, 1, 15, '', NULL);
 
 -- --------------------------------------------------------
 
